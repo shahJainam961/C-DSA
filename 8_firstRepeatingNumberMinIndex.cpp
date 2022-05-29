@@ -1,6 +1,13 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+
+/*
+Given an array arr[]of size N. The task is to find the first repeating element in the array of
+integers,i.e.,an element that occurs more than once and whose index of first occurrence is
+smallest.
+*/
+
 int firstRepeatingNumberMinIndex(vector<int> arr, int n){
     int minIdx = INT_MAX;
     const int N = 1e6+2;

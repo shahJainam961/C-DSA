@@ -1,28 +1,35 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+/*
+Given an unsorted array A of size N of non-negative integers,find a continuous subarray
+which adds to a given number S.
+*/
+
 pair<int,int> subArrayWithGivenSum(vector<int> arr, int n, int sum){
+    if(n==0) return {-1,-1};
     int start=0;
     int end=0;
     int testSum=0;
 
-    while(end<n && testSum+arr[end]<=sum){
+    while(testSum + arr[end] <= sum && end < n){
         testSum += arr[end];
         end++;
     }
-    if(sum ==  testSum){
-        pair<int,int> result = make_pair(start,end);
-        return result;
-    }
-    while(start<n && testSum-arr[start]>=sum){
-        start++;
-    }
-    if(sum ==  testSum){
-        pair<int,int> result = make_pair(start,end);
-        return result;
-    }
-    return {-1,-1}; 
 
+    if(testSum == sum) return {start, end-1};
+
+    while(end < n){
+        testSum += arr[end];
+        while(testSum > sum){
+            testSum -= arr[start];
+            start++;
+        }
+        if(testSum == sum) return {start,end};
+        end++;
+    }
+    
+    return {-1,-1};
     
 }
 

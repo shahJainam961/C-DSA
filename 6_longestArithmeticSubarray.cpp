@@ -2,6 +2,18 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+/*
+An arithmetic array is an array that contains at least two integers and the differences
+between consecutive integers are equal.For example,[9,10],[3,3,3],and[9,7,5,3]are
+arithmetic arrays,while[1,3,3,7],[2,1,2],and[1,2,4]are not arithmetic arrays.
+
+Sarasvati has an array of N non-negative integers.The i-th integer of the array is A. She
+wants to chooseacontiguous arithmetic subarray from her array that has the maximum
+length.Please help her to determine the length of the longest contiguous arithmetic
+subarray.
+*/
+
+
 int longestArithmeticSubarray(vector<int> arr, int n){
     if(arr.size()==0 || arr.size() == 1 || arr.size() == 2) return arr.size();
 
